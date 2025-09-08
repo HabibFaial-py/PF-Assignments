@@ -1,2 +1,2 @@
 # PF-Assignments
-*Semester 1 Assignmets*
+*Semester 1 Assignments*
