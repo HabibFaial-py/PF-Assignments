@@ -1,46 +1,46 @@
 #include <stdio.h>
+
 int main() {
-    int array[] = {1,2,3,4,5};
-    int array2[] = {3,4,5,6,7,8};
+    int array[] = {1,1, 2, 2, 3,3, 4, 5};
+    int array2[] = {3,3, 4, 5,50, 6, 7,7, 8};
     int farray[100];
     int count = 0;
 
-    for (int i = 0; i < 5; i++) {
-        farray[count] = array[i];
-        count = count + 1;
-    }
-
-    for (int j = 0; j < 6; j++) {
+    int size1 = sizeof(array) / sizeof(array[0]);
+    int size2 = sizeof(array2) / sizeof(array2[0]);
+    
+    for (int i = 0; i < size1; i++) {
         int found = 0;
         for (int k = 0; k < count; k++) {
-            if (array2[j] == farray[k]) {
+            if (farray[k] == array[i]) {
                 found = 1;
                 break;
             }
         }
         if (found == 0) {
-            farray[count] = array2[j];
-            count = count + 1;
+            farray[count] = array[i];
+            count++;
         }
     }
 
-	printf("Array 1 :\n");
-	printf("\n");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", array[i]);
+    for (int j = 0; j < size2; j++) {
+        int found = 0;
+        for (int k = 0; k < count; k++) {
+            if (farray[k] == array2[j]) {
+                found = 1;
+                break;
+            }
+        }
+        if (found == 0) {
+            farray[count++] = array2[j];
+        }
     }
-    printf("\n");
-    printf("Array 2 : \n");
-    printf("\n");
-    for (int i = 0; i < 6; i++) {
-        printf("%d ", array2[i]);
-    }
-    printf("\n");
+
     printf("Union:\n");
-	printf("\n");
     for (int i = 0; i < count; i++) {
         printf("%d ", farray[i]);
     }
 
     return 0;
 }
+
