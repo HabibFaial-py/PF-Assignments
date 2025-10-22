@@ -32,7 +32,8 @@ int main() {
             }
         }
         if (found == 0) {
-            farray[count++] = array2[j];
+            farray[count] = array2[j];
+            count++;
         }
     }
 
@@ -43,4 +44,5 @@ int main() {
 
     return 0;
 }
+
 
